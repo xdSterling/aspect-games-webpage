@@ -1,15 +1,19 @@
-const spans = document.querySelectorAll('.word span');
+const swiftUpElements = document.querySelectorAll('.swift-up-text');
 
-spans.forEach((span, idx) => {
-  span.addEventListener('click', (e) => {
-    e.target.classList.add('active');
-  });
-  span.addEventListener('animationend', (e) => {
-    e.target.classList.remove('active');
-  });
-  
-  // Initial animation
-  setTimeout(() => {
-    span.classList.add('active');
-  }, 750 * (idx+1))
+swiftUpElements.forEach(elem => {
+
+	const words = elem.textContent.split(' ');
+	elem.innerHTML = '';
+
+	words.forEach((el, index) => {
+		words[index] = `<span><i>${words[index]}</i></span>`;
+	});
+
+	elem.innerHTML = words.join(' ');
+
+	const children = document.querySelectorAll('span > i');
+	children.forEach((node, index) => {
+		node.style.animationDelay = `${index * .2}s`;
+	});
+
 });
