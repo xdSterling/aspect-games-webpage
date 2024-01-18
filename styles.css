@@ -1,19 +1,58 @@
-body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
-	overflow: hidden;
+*{
+	font-family: Helvetica;
+	color: white;
 }
 
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
+:root{
+	--headingSize: 55px;
+	--background-color: black;
+}
+
+body{
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: var(--background-color);
+}
+
+h1{
+  margin: 0;
+  letter-spacing: -1px;
+  font-size: var(--headingSize);
+}
+
+.container{
+	width: 50%;
+}
+
+span{
+  display: inline-block;
+  overflow: hidden;
+  animation: .3s swift-up ease-in-out forwards;	
+}
+
+i{
+  font-style: normal;
+  position: relative;
+  top: var(--headingSize);
+  animation: .5s swift-up ease-in-out forwards;
+}
+
+@keyframes swift-up {
+  to {
+    top: 0;
+  }
+}
+
+@media screen and (max-width: 1000px){
+	.container{
+		width: auto;
+		margin: 0 10%;
 	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
+	
+	:root{
+		--headingSize: 35px;
 	}
 }
